@@ -33,15 +33,15 @@ h1::after{
 h1::before{
     background: var(--bgColor);
     animation: typewriter var(--typewriterSpeed) 
-    var(--stepsCharacter) 1s forwards;
+    steps(var(--stepsCharacter)) 1s forwards;
 }
 
 h1::after{
     width: 0.125em;
     background: black;
     animation: typewriter var(--typewriterSpeed) 
-    var(--stepsCharacter) 1s forwards,
-    blink 500ms steps(24) infinite;
+    steps(var(--stepsCharacter)) 1s forwards,
+    blink 7500ms steps(var(--stepsCharacter))infinite;
 }
 @keyframes typewriter {
     to{
