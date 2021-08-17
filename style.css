@@ -1,20 +1,24 @@
-
+:root{
+    --bgColor: hsl(49 37% 94%);
+    --typewriterSpeed: 6s;
+    --stepsCharacter: 25;
+}
 
 
 body{
     margin: 0;
     font-family: sans-serif;
     min-height: 100vh;
-    /*display: grid;
+    display: grid;
     place-content: center;
-    text-align: center;*/
-    background: hsl(49 37% 94%);
+    text-align: center;
+    background: var(--bgColor);
 }
 h1{
-    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    font-size: clamp(1rem, 2vw + 1rem, 4rem);
     position: relative;
     font-family: monospace;
-    outline: 2px solid red;
+    outline: 2px;
     width: max-content;
 }
 h1::before,
@@ -27,16 +31,50 @@ h1::after{
     position: absolute;
 }
 h1::before{
-    background: rgb(4, 77, 77);
-    animation: typewriter 4s steps(24) forwards;
+    background: var(--bgColor);
+    animation: typewriter var(--typewriterSpeed) 
+    var(--stepsCharacter) 1s forwards;
+}
+
+h1::after{
+    width: 0.125em;
+    background: black;
+    animation: typewriter var(--typewriterSpeed) 
+    var(--stepsCharacter) 1s forwards,
+    blink 500ms steps(24) infinite;
 }
 @keyframes typewriter {
     to{
         left: 100%;
     }
 }
+@keyframes blink{
+    to{
+        background: transparent;
+    }
+}
 .subtitle{
     color: hsl(0 0% 0% / 0.7);
     font-size: 1.5rem;
     font-weight: 400;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeInUp 2s ease 
+    calc(var(--typewriterSpeed) + 2s) forwards;
+}
+@keyframes typewriter {
+    to{
+        left: 100%;
+    }
+}
+@keyframes blink{
+    to{
+        background: transparent;
+    }
+}
+@keyframes fadeInUp{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
