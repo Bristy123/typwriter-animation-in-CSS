@@ -41,7 +41,7 @@ h1::after{
     background: black;
     animation: typewriter var(--typewriterSpeed) 
     steps(var(--stepsCharacter)) 1s forwards,
-    blink 7500ms steps(var(--stepsCharacter))infinite;
+    blink 750ms steps(var(--stepsCharacter))infinite;
 }
 @keyframes typewriter {
     to{
